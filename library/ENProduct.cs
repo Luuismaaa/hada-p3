@@ -62,5 +62,29 @@ namespace library
             CADProduct cad = new CADProduct();
             return cad.delete(this);
         }
+
+        public bool read()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.read(this);
+        }
+
+        public bool readFirst()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.readFirst(this);
+        }
+
+        public bool readNext()
+        {
+            CADProduct cad = new CADProduct()
+            return cad.readNext(this);
+        }
+
+        public bool readPrev()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.readPrev(this);
+        }
     }
 }
