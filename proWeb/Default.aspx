@@ -5,8 +5,8 @@
 
     <h2> Products management </h2>
 
-    Code <asp:TextBox ID="TextBoxCode" runat="server"></asp:TextBox> <br />
-    Name <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox> <br />
+    Code <asp:TextBox ID="TextBoxCode" runat="server" MaxLength="16" required="required"></asp:TextBox> <br />
+    Name <asp:TextBox ID="TextBoxName" runat="server"  MaxLength="32"></asp:TextBox> <br />
     Amount <asp:TextBox ID="TextBoxAmount" runat="server"></asp:TextBox> <br />
     Category <asp:DropDownList ID="DropDownListCategory" runat="server"></asp:DropDownList> <br />
     Price <asp:TextBox ID="TextBoxPrice" runat="server"></asp:TextBox> <br />
@@ -19,5 +19,7 @@
     <asp:Button ID="ButtonReadFirst" runat="server" Text="Read First"/>
     <asp:Button ID="ButtonReadPrev" runat="server" Text="Read Prev"/>
     <asp:Button ID="ButtonReadNext" runat="server" Text="Read Next"/>
+
+    <asp:Label ID="LabelMessage" runat="server"> </asp:Label>
 
 </asp:Content>
