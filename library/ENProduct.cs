@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,24 @@ namespace library
             this._category = category;
             this._creationDate = creationDate;
         }
+         
 
+        public bool create()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.create(this);
+        }
+
+        public bool update()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.update(this);
+        }
+
+        public bool delete()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.delete(this);
+        }
     }
 }
