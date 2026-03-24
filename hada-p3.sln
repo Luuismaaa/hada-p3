@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36930.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "proWeb", "proWeb\proWeb.csproj", "{926DE7FF-7F97-42D8-A114-EC1D146A3823}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "library", "library\library.csproj", "{3556AEF6-6FBA-4741-A64B-DC934EFFA502}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{926DE7FF-7F97-42D8-A114-EC1D146A3823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{926DE7FF-7F97-42D8-A114-EC1D146A3823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{926DE7FF-7F97-42D8-A114-EC1D146A3823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{926DE7FF-7F97-42D8-A114-EC1D146A3823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3556AEF6-6FBA-4741-A64B-DC934EFFA502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3556AEF6-6FBA-4741-A64B-DC934EFFA502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3556AEF6-6FBA-4741-A64B-DC934EFFA502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3556AEF6-6FBA-4741-A64B-DC934EFFA502}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18CDA284-F0A6-4224-84F6-90A79369FBC3}
+	EndGlobalSection
+EndGlobal
