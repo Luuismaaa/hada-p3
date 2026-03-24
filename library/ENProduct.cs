@@ -23,7 +23,25 @@ namespace library
         public int Category { get => _category; set => _category = value; }
         public DateTime CreationDate { get => _creationDate; set => _creationDate = value; }
 
+        public ENProduct()
+        {
+            _code = "";
+            _name = "";
+            _amount = 0;
+            _price = 0.0f;
+            _category = 0;
+            _creationDate = DateTime.Now;
+        }
 
+        public ENProduct(string code, string name, int amount, float price, int category, DateTime creationDate)
+        {
+            this._code = code;
+            this._name = name;
+            this._amount = amount;
+            this._price = price;
+            this._category = category;
+            this._creationDate = creationDate;
+        }
 
     }
 }
