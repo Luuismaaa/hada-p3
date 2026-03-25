@@ -16,7 +16,7 @@ namespace library
 
         public CADProduct()
         {
-            constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["ConexionBD"].ToString();
         }
 
         public bool create(ENProduct en)

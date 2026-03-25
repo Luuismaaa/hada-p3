@@ -14,7 +14,7 @@ namespace library
 
         public CADCategory()
         {
-            constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+            constring = ConfigurationManager.ConnectionStrings["ConexionBD"].ToString();
         }
 
         // Método para leer una categoría concreta por su ID
