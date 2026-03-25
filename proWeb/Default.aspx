@@ -12,13 +12,13 @@
     Price <asp:TextBox ID="TextBoxPrice" runat="server"></asp:TextBox> <br />
     Creation Date <asp:TextBox ID="TextBoxCDate" runat="server"></asp:TextBox> <br />
 
-    <asp:Button ID="ButtonCreate" runat="server" Text="Create"/>
-    <asp:Button ID="ButtonUpdate" runat="server" Text="Update"/>
-    <asp:Button ID="ButtonDelete" runat="server" Text="Delete"/>
-    <asp:Button ID="ButtonRead" runat="server" Text="Read"/>
-    <asp:Button ID="ButtonReadFirst" runat="server" Text="Read First"/>
-    <asp:Button ID="ButtonReadPrev" runat="server" Text="Read Prev"/>
-    <asp:Button ID="ButtonReadNext" runat="server" Text="Read Next"/>
+    <asp:Button ID="ButtonCreate" runat="server" Text="Create" OnClick="ButtonCreate_Click"/>
+    <asp:Button ID="ButtonUpdate" runat="server" Text="Update" OnClick="ButtonUpdate_Click"/>
+    <asp:Button ID="ButtonDelete" runat="server" Text="Delete" OnClick="ButtonDelete_Click"/>
+    <asp:Button ID="ButtonRead" runat="server" Text="Read" OnClick="ButtonRead_Click"/>
+    <asp:Button ID="ButtonReadFirst" runat="server" Text="Read First" OnClick="ButtonReadFirst_Click"/>
+    <asp:Button ID="ButtonReadPrev" runat="server" Text="Read Prev" OnClick="ButtonReadPrev_Click"/>
+    <asp:Button ID="ButtonReadNext" runat="server" Text="Read Next" OnClick="ButtonReadNext_Click"/>
 
     <asp:Label ID="LabelMessage" runat="server"> </asp:Label>
 
