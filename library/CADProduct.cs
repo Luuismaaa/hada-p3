@@ -101,7 +101,6 @@ namespace library
             try
             {
                 c.Open();
-                // Borramos usando el Code
                 string sql = "DELETE FROM Products WHERE code = @code";
 
                 SqlCommand com = new SqlCommand(sql, c);
@@ -125,8 +124,6 @@ namespace library
             return success;
         }
 
-        // Método para leer un producto específico por su código
-        [cite_start]// Devuelve solo el producto indicado leído de la BD [cite: 459]
         public bool read(ENProduct en)
         {
             bool success = false;
@@ -140,7 +137,7 @@ namespace library
                 com.Parameters.AddWithValue("@code", en.Code);
 
                 SqlDataReader dr = com.ExecuteReader();
-                if (dr.Read()) // Si encuentra el producto...
+                if (dr.Read())
                 {
                     // Rellenamos el objeto con los datos de la BD
                     en.Name = dr["name"].ToString();
@@ -165,8 +162,6 @@ namespace library
             return success;
         }
 
-        // Método para leer el primer producto
-        [cite_start]// Devuelve solo el primer producto de la BD [cite: 460]
         public bool readFirst(ENProduct en)
         {
             bool success = false;
@@ -175,7 +170,6 @@ namespace library
             try
             {
                 c.Open();
-                // Ordenamos por código de forma ascendente y cogemos el primero (TOP 1)
                 string sql = "SELECT TOP 1 * FROM Products ORDER BY code ASC";
                 SqlCommand com = new SqlCommand(sql, c);
 
@@ -205,8 +199,6 @@ namespace library
             return success;
         }
 
-        // Método para leer el siguiente producto al indicado
-        [cite_start]// Devuelve solo el producto siguiente al indicado [cite: 461]
         public bool readNext(ENProduct en)
         {
             bool success = false;
@@ -215,7 +207,6 @@ namespace library
             try
             {
                 c.Open();
-                // Buscamos el primer producto cuyo código sea mayor al actual, en orden alfabético
                 string sql = "SELECT TOP 1 * FROM Products WHERE code > @code ORDER BY code ASC";
                 SqlCommand com = new SqlCommand(sql, c);
                 com.Parameters.AddWithValue("@code", en.Code);
@@ -246,8 +237,6 @@ namespace library
             return success;
         }
 
-        // Método para leer el producto anterior al indicado
-        [cite_start]// Devuelve solo el producto anterior al indicado [cite: 462]
         public bool readPrev(ENProduct en)
         {
             bool success = false;
@@ -256,7 +245,6 @@ namespace library
             try
             {
                 c.Open();
-                // Buscamos el primer producto cuyo código sea menor al actual, ordenado de forma descendente
                 string sql = "SELECT TOP 1 * FROM Products WHERE code < @code ORDER BY code DESC";
                 SqlCommand com = new SqlCommand(sql, c);
                 com.Parameters.AddWithValue("@code", en.Code);
