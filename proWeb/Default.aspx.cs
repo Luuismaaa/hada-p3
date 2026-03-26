@@ -55,6 +55,12 @@ namespace proWeb
                 }
 
                 ENProduct producto = new ENProduct(code, name, amount, price, category, date);
+
+                if (producto.read()) 
+                {
+                    throw new Exception("Producto EXISTENTE en la BD.");
+                }
+
                 bool exito = producto.create();
 
                 if (exito)
@@ -78,13 +84,106 @@ namespace proWeb
 
         protected void ButtonUpdate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string code = TextBoxCode.Text;
+                string name = TextBoxName.Text;
+                int amount = int.Parse(TextBoxAmount.Text);
+                float price = float.Parse(TextBoxPrice.Text);
+                int category = int.Parse(DropDownListCategory.SelectedValue);
+                DateTime date = DateTime.Parse(TextBoxCDate.Text);
 
+                if (code == "" || code.Length > 16)
+                {
+                    throw new Exception("Código del producto NO válido.");
+                }
+
+                if (name.Length > 32)
+                {
+                    throw new Exception("Nombre del producto NO válido.");
+                }
+
+                if (amount < 0 || amount >= 10000)
+                {
+                    throw new Exception("Cantidad del producto NO válida.");
+                }
+
+                if (price < 0 || price >= 10000.00)
+                {
+                    throw new Exception("Precio del producto NO válido.");
+                }
+
+                ENProduct aux = new ENProduct(code, name, amount, price, category, date);
+
+                if (!aux.read())
+                {
+                    throw new Exception("Producto NO EXISTE en la BD.");
+                }
+
+                ENProduct producto = new ENProduct(code, name, amount, price, category, date);
+
+                bool exito = producto.update();
+
+                if (exito)
+                {
+                    LabelMessage.ForeColor = System.Drawing.Color.Green;
+                    LabelMessage.Text = "Success: The product was updated correctly.";
+                }
+                else
+                {
+                    throw new Exception("La base de datos ha rechazado el producto. Revisa la conexión o los datos.");
+                }
+            }
+            catch (Exception ex)
+            {
+                LabelMessage.ForeColor = System.Drawing.Color.Red;
+                LabelMessage.Text = "Error: " + ex.Message;
+
+                Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+            }
         }
 
         protected void ButtonDelete_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string code = TextBoxCode.Text;
 
+                if (code == "" || code.Length > 16)
+                {
+                    throw new Exception("Código del producto NO válido.");
+                }
+
+                ENProduct producto = new ENProduct();
+                producto.Code = code;
+
+                if (!producto.read())
+                {
+                    throw new Exception("Producto NO EXISTE en la BD.");
+                }
+
+                bool exito = producto.delete();
+
+                if (exito)
+                {
+                    LabelMessage.ForeColor = System.Drawing.Color.Green;
+                    LabelMessage.Text = "Success: The product was deleted correctly.";
+                }
+                else
+                {
+                    throw new Exception("La base de datos ha rechazado el producto. Revisa la conexión o los datos.");
+                }
+            }
+            catch (Exception ex)
+            {
+                LabelMessage.ForeColor = System.Drawing.Color.Red;
+                LabelMessage.Text = "Error: " + ex.Message;
+
+                Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+            }
         }
+
+
 
         protected void ButtonRead_Click(object sender, EventArgs e)
         {
