@@ -14,7 +14,7 @@
         <div>
             <p> Luis Manuel Redondo Marín - 54204222F </p> 
             <p> César Caballero - 24437006N </p> 
-            <h1> HADA P3 - CURSO 2025/26 </h1>
+            <h1 style="background-color: deepskyblue"; > HADA P3 - CURSO 2025/26 </h1>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
