@@ -233,7 +233,7 @@ namespace proWeb
 
                 if (!producto.readFirst())
                 {
-                    throw new Exception("Producto NO EXISTE en la BD.");
+                    throw new Exception("BD se encuentra vacia");
                 }
 
                 TextBoxCode.Text = producto.Code;
