@@ -258,12 +258,91 @@ namespace proWeb
 
         protected void ButtonReadPrev_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string code = TextBoxCode.Text;
+
+                if (code == "" || code.Length > 16)
+                {
+                    throw new Exception("Código del producto NO válido.");
+                }
+
+                ENProduct producto = new ENProduct();
+                producto.Code = code;
+
+                if (!producto.read())
+                {
+                    throw new Exception("Producto NO EXISTE en la BD.");
+                }
+
+                if (!producto.readPrev()) 
+                {
+                    throw new Exception("Producto previo NO EXISTE en la BD.");
+                }
+
+                TextBoxCode.Text = producto.Code;
+                TextBoxName.Text = producto.Name;
+                TextBoxAmount.Text = producto.Amount.ToString();
+                TextBoxPrice.Text = producto.Price.ToString();
+                DropDownListCategory.SelectedValue = producto.Category.ToString();
+                TextBoxCDate.Text = producto.CreationDate.ToString();
+
+                LabelMessage.ForeColor = System.Drawing.Color.Green;
+                LabelMessage.Text = "Success: The previous product was read correctly.";
+
+            }
+            catch (Exception ex)
+            {
+                LabelMessage.ForeColor = System.Drawing.Color.Red;
+                LabelMessage.Text = "Error: " + ex.Message;
+
+                Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+            }
 
         }
 
         protected void ButtonReadNext_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string code = TextBoxCode.Text;
 
+                if (code == "" || code.Length > 16)
+                {
+                    throw new Exception("Código del producto NO válido.");
+                }
+
+                ENProduct producto = new ENProduct();
+                producto.Code = code;
+
+                if (!producto.read())
+                {
+                    throw new Exception("Producto NO EXISTE en la BD.");
+                }
+
+                if (!producto.readNext())
+                {
+                    throw new Exception("Producto siguiente NO EXISTE en la BD.");
+                }
+
+                TextBoxCode.Text = producto.Code;
+                TextBoxName.Text = producto.Name;
+                TextBoxAmount.Text = producto.Amount.ToString();
+                TextBoxPrice.Text = producto.Price.ToString();
+                DropDownListCategory.SelectedValue = producto.Category.ToString();
+                TextBoxCDate.Text = producto.CreationDate.ToString();
+
+                LabelMessage.ForeColor = System.Drawing.Color.Green;
+                LabelMessage.Text = "Success: The next product was read correctly.";
+
+            }
+            catch (Exception ex)
+            {
+                LabelMessage.ForeColor = System.Drawing.Color.Red;
+                LabelMessage.Text = "Error: " + ex.Message;
+
+                Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+            }
         }
     }
 }
