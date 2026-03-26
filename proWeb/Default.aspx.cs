@@ -15,10 +15,10 @@ namespace proWeb
         {
             if (!IsPostBack) 
             {
-                DropDownListCategory.Items.Add(new ListItem("Computing", "0"));
-                DropDownListCategory.Items.Add(new ListItem("Telephony", "1"));
-                DropDownListCategory.Items.Add(new ListItem("Gaming", "2"));
-                DropDownListCategory.Items.Add(new ListItem("Home appliances", "3"));
+                DropDownListCategory.Items.Add(new ListItem("Computing", "1")); //Tengo que empezar por 1 porque sino la BD NO lo acepta dado las restricciones
+                DropDownListCategory.Items.Add(new ListItem("Telephony", "2"));
+                DropDownListCategory.Items.Add(new ListItem("Gaming", "3"));
+                DropDownListCategory.Items.Add(new ListItem("Home appliances", "4"));
             }
 
         }
