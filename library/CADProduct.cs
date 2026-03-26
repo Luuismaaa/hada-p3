@@ -47,6 +47,7 @@ namespace library
             {
                 success = false;
                 Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+                throw;
             }
             finally
             {

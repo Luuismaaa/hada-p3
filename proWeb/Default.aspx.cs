@@ -19,7 +19,6 @@ namespace proWeb
                 DropDownListCategory.Items.Add(new ListItem("Telephony", "1"));
                 DropDownListCategory.Items.Add(new ListItem("Gaming", "2"));
                 DropDownListCategory.Items.Add(new ListItem("Home appliances", "3"));
-
             }
 
         }
@@ -33,12 +32,40 @@ namespace proWeb
                 int amount = int.Parse(TextBoxAmount.Text);
                 float price = float.Parse(TextBoxPrice.Text);
                 int category = int.Parse(DropDownListCategory.SelectedValue);
+                DateTime date = DateTime.Parse(TextBoxCDate.Text);
 
-                //Aqui añadimos el producto con la clase de library.
+                if (code == "" || code.Length > 16) 
+                {
+                    throw new Exception("Código del producto NO válido.");
+                }
 
-                LabelMessage.ForeColor = System.Drawing.Color.Green;
-                LabelMessage.Text = "Success: The product was created correctly.";
+                if (name.Length > 32) 
+                {
+                    throw new Exception("Nombre del producto NO válido.");
+                }
 
+                if (amount < 0 || amount >= 10000) 
+                {
+                    throw new Exception("Cantidad del producto NO válida.");
+                }
+
+                if (price < 0 || price >= 10000.00)
+                {
+                    throw new Exception("Precio del producto NO válido.");
+                }
+
+                ENProduct producto = new ENProduct(code, name, amount, price, category, date);
+                bool exito = producto.create();
+
+                if (exito)
+                {
+                    LabelMessage.ForeColor = System.Drawing.Color.Green;
+                    LabelMessage.Text = "Success: The product was created correctly.";
+                }
+                else
+                {
+                    throw new Exception("La base de datos ha rechazado el producto. Revisa la conexión o los datos.");
+                }
             }
             catch (Exception ex) 
             {
@@ -47,7 +74,6 @@ namespace proWeb
 
                 Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
             }
-
         }
 
         protected void ButtonUpdate_Click(object sender, EventArgs e)
