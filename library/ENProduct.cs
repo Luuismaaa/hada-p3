@@ -77,7 +77,7 @@ namespace library
 
         public bool readNext()
         {
-            CADProduct cad = new CADProduct()
+            CADProduct cad = new CADProduct();
             return cad.readNext(this);
         }
 
